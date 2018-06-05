@@ -1,0 +1,64 @@
+clc;close all;clear all;
+figure;
+hold on;
+plot3([0 0],[0 0],[0 100],'^-');
+plot3([0 0],[100 100],[0 50],'^-');
+plot3([0 100],[0 0],[0 0],'^-');
+plot3([0 0],[0 100],[0 0],'^-');
+t = 0:0.01:2*pi;
+eclipse_x = 20*cos(t);
+eclipse_z = 30*sin(t)+50;
+plot(eclipse_x,eclipse_z,'--');
+plot3(20,50,0,'o');
+plot3([0 20 0 0],[0 50 100 0],[100 0 50 100],'-');
+A1 = [0 0 100];
+B1 = [20 50 0];
+vec1 = (A1-B1)*0.2+B1;
+A2 = [0 100 50];
+B2 = [20 50 0];
+vec2 = (A2-B2)*0.2+vec1;
+vec3 = (A2-B2)*0.2+B2;
+plot3([20 vec1(1) vec2(1) vec3(1) 20],[50 vec1(2) vec2(2) vec3(2) 50],...
+    [0 vec1(3) vec2(3) vec3(3) 0],'--');
+plot3([20 vec2(1)],[50 vec2(2)],[0 vec2(3)]);
+plot3([20 60],[50 60],[0 18.4]);
+
+figure;
+plot3([0 0 20 40 50],[0 0 20 60 90],[0 100 600 0 300]);
+hold on;
+plot3([0 0 25 45 60],[0 0 30 55 80],[0 100 600 0 300]);
+t = 0:0.01:2*pi;
+eclipse_x = 10*cos(t)+25;
+eclipse_y = 15*sin(t)+25;
+plot3(eclipse_x,eclipse_y,600*ones(size(eclipse_x)),'--');
+eclipse_x = 10*cos(t)+40;
+eclipse_y = 15*sin(t)+50;
+plot3(eclipse_x,eclipse_y,zeros(size(eclipse_x)),'--');
+grid on;
+
+
+figure;
+plot3([0 0 20 40],[0 0 20 60],[0 100 600 0]);
+hold on;
+plot3([0 0 25 40],[0 0 30 60],[0 100 600 0]);
+t = 0:0.01:2*pi;
+eclipse_x = 10*cos(t)+25;
+eclipse_y = 15*sin(t)+25;
+plot3(eclipse_x,eclipse_y,600*ones(size(eclipse_x)),'--');
+eclipse_x = 10*cos(t)+40;
+eclipse_y = 15*sin(t)+50;
+plot3(eclipse_x,eclipse_y,zeros(size(eclipse_x)),'--');
+grid on;
+
+figure;
+plot3([20 40 50],[20 60 90],[600 0 300]);
+hold on;
+plot3([20 45 50],[20 55 90],[600 0 300]);
+t = 0:0.01:2*pi;
+eclipse_x = 10*cos(t)+25;
+eclipse_y = 15*sin(t)+25;
+plot3(eclipse_x,eclipse_y,600*ones(size(eclipse_x)),'--');
+eclipse_x = 10*cos(t)+40;
+eclipse_y = 15*sin(t)+50;
+plot3(eclipse_x,eclipse_y,zeros(size(eclipse_x)),'--');
+grid on;
